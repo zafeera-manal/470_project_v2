@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User; // Import the User model
+use App\Models\Itinerary;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -53,6 +54,17 @@ class AdminController extends Controller
 
         return redirect()->route('admin.users.index')->with('success', 'User deleted successfully!');
     }
+    public function viewItineraries()
+    {
+        // Fetch all itineraries with user data (eager loading)
+        $itineraries = Itinerary::with('user')->get();
+
+        // Return the view with the itineraries data
+        return view('admin.itineraries.index', compact('itineraries'));
+    }
+
+   
+
 }
 
 

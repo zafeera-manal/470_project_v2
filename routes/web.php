@@ -89,3 +89,7 @@ Route::post('/admin/users', [AdminController::class, 'store'])->name('admin.user
 
 // Route to delete a user
 Route::delete('/admin/users/{id}', [AdminController::class, 'destroy'])->name('admin.users.destroy'); 
+
+// Route for Admin to view all itineraries
+Route::get('/admin/itineraries', [AdminController::class, 'viewItineraries'])->name('admin.itineraries.index');
+
